@@ -6,28 +6,35 @@ export default function Page() {
     <>
       <section className="w-screen h-screen items-center justify-center flex  from-60% via-40% from-gray-900 to-indigo-950 bg-gradient-to-b">
         <Header />
-        <Welcome />
+        <Welcome text="hello, welcome" />
       </section>
       <section className="w-screen h-screen"></section>
     </>
   );
 }
 
-function Welcome() {
-  const [hidden, setHidden] = useState<boolean>(false);
+function Welcome(props: { text: string }) {
+  const [text, setText] = useState<string>("");
 
   useEffect(() => {
-    setTimeout(() => {
-      setHidden(true);
-    }, 3000);
+    if (text.length != props.text.length) {
+      for (let index = 0; index < props.text.length; index++) {
+        setTimeout(() => {
+          setText((prev) => `${prev}${props.text[index]}`);
+        }, 100 * index);
+      }
+    }
+    return setText("");
   }, []);
-  if (hidden) return null;
   return (
-    <div className="md:text-[100px] text-[70px] animate-typingText overflow-hidden w-[460px] text-gray-500 ">
-      <span className="tracking-[10px]">welcome</span>
+    <div className="md:text-[100px] text-[80px] w-max text-gray-500 ">
+      <span className="tracking-widest ease-linear border-r-[4px] transition-[4s] animate-cursortext border-gray-500">
+        {text}
+      </span>
     </div>
   );
 }
+
 function Header() {
   return (
     <header className="min-h-20 bg fixed top-0 flex justify-end w-full bg-transparent items-center px-8">
