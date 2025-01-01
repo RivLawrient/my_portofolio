@@ -33,7 +33,7 @@ function CardIntro() {
         hidden
           ? "md:h-[200px] h-[140px]"
           : "md:h-[450px] h-[60%] transition-all"
-      } bg-gray-800/30 border border-gray-800 rounded-2xl md:w-[800px] w-[480px] relative  flex justify-center`}
+      } bg-gray-800/30 border border-gray-800 rounded-2xl md:w-[800px] w-[400px] relative  flex justify-center`}
     >
       <div
         className={`${
