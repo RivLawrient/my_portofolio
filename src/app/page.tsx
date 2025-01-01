@@ -14,21 +14,43 @@ export default function Page() {
 }
 
 function Welcome(props: { text: string }) {
+  const [hidden, setHidden] = useState<boolean>(false);
   const [text, setText] = useState<string>("");
+  const [isReversing, setIsReversing] = useState<boolean>(false);
 
   useEffect(() => {
-    if (text.length != props.text.length) {
+    if (!isReversing) {
       for (let index = 0; index < props.text.length; index++) {
         setTimeout(() => {
           setText((prev) => `${prev}${props.text[index]}`);
-        }, 100 * index);
+        }, 150 * index);
       }
+
+      setTimeout(() => {
+        setIsReversing(true);
+      }, props.text.length * 150 + 1000);
     }
-    return setText("");
-  }, []);
+  }, [props.text, isReversing]);
+
+  useEffect(() => {
+    if (isReversing) {
+      for (let index = props.text.length - 1; index >= 0; index--) {
+        setTimeout(() => {
+          setText((prev) => prev.slice(0, prev.length - 1));
+        }, 200 * (props.text.length - index));
+      }
+
+      setTimeout(() => {
+        setIsReversing(false);
+        setHidden(true);
+      }, props.text.length * 200 + 1000);
+    }
+  }, [isReversing, props.text]);
+
+  if (hidden) return null;
   return (
     <div className="md:text-[100px] text-[80px] w-max text-gray-500 ">
-      <span className="tracking-widest ease-linear border-r-[4px] transition-[4s] animate-cursortext border-gray-500">
+      <span className="tracking-widest border-r-[4px] transition-[5s] animate-cursortext border-gray-500">
         {text}
       </span>
     </div>
