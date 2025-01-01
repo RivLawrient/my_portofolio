@@ -10,7 +10,7 @@ export default function Page() {
         <img
           src="./fll.jpg"
           alt=""
-          className="absolute w-screen -z-10 blur-md "
+          className="absolute md:w-screen w-auto h-screen md:h-auto -z-10 blur-md "
         />
         <CardIntro />
       </section>
