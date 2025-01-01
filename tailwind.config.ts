@@ -14,7 +14,7 @@ export default {
         foreground: "var(--foreground)",
       },
       animation: {
-        typingText: "typing 2s",
+        typingText: "typing 2000ms",
         hideText: "hide 2s 2s",
       },
     },

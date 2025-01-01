@@ -24,7 +24,7 @@ function Welcome() {
   if (hidden) return null;
   return (
     <div className="text-[100px] animate-typingText overflow-hidden w-[420px] text-gray-500 ">
-      <span className="tracking-wider">Welcome</span>
+      <span className="">welcome</span>
     </div>
   );
 }
