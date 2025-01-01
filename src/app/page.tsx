@@ -3,20 +3,22 @@ import { useEffect, useState } from "react";
 
 export default function Page() {
   return (
-    <>
-      <Welcome text="hello, welcome" />
-      <Header />
-      <section className="w-screen h-screen  items-center justify-center flex flex-col bg-gray-900/90">
-        <img
-          src="./fll.jpg"
-          alt=""
-          className="absolute md:w-screen w-auto h-screen md:h-auto -z-10 blur-md "
-        />
-        <CardIntro />
-      </section>
-      <section className="w-screen h-screen bg-gray-900"></section>
-      <section className="w-screen h-screen bg-gray-900"></section>
-    </>
+    <div className="fixed w-screen h-screen">
+      <div className="relative w-screen h-screen overflow-y-scroll">
+        <Welcome text="hello, welcome" />
+        <Header />
+        <section className="w-screen h-screen  items-center justify-center flex flex-col bg-gray-900/90">
+          <img
+            src="./fll.jpg"
+            alt=""
+            className="absolute md:w-screen w-auto h-screen md:h-auto -z-10 blur-md overflow-hidden "
+          />
+          <CardIntro />
+        </section>
+        <section className="w-screen h-screen bg-gray-900"></section>
+        <section className="w-screen h-screen bg-gray-900"></section>
+      </div>
+    </div>
   );
 }
 function CardIntro() {
@@ -30,9 +32,7 @@ function CardIntro() {
   return (
     <div
       className={`${
-        hidden
-          ? "md:h-[200px] h-[140px]"
-          : "md:h-[450px] h-[60%] transition-all"
+        hidden ? "h-[0px] opacity-0" : "md:h-[450px] h-[60%] transition-all"
       } bg-gray-800/30 border border-gray-800 rounded-2xl md:w-[800px] w-[400px] relative  flex justify-center`}
     >
       <div
