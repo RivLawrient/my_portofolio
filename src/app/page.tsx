@@ -23,7 +23,7 @@ function Welcome() {
   }, []);
   if (hidden) return null;
   return (
-    <div className="md:text-[100px] text-[70px] animate-typingText overflow-hidden w-[420px] text-gray-500 ">
+    <div className="md:text-[100px] text-[70px] animate-typingText overflow-hidden w-[440px] text-gray-500 ">
       <span className="tracking-[10px]">welcome</span>
     </div>
   );
