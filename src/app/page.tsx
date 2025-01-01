@@ -1,12 +1,33 @@
+"use client";
+import { useEffect, useState } from "react";
+
 export default function Page() {
   return (
-    <section className="w-screen h-screen items-center justify-center flex  from-60% via-40% from-gray-900 to-indigo-950 bg-gradient-to-b">
-      <Header />
-      <span className="text-[100px] text-gray-500">Welcome</span>
-    </section>
+    <>
+      <section className="w-screen h-screen items-center justify-center flex  from-60% via-40% from-gray-900 to-indigo-950 bg-gradient-to-b">
+        <Header />
+        <Welcome />
+      </section>
+      <section className="w-screen h-screen"></section>
+    </>
   );
 }
 
+function Welcome() {
+  const [hidden, setHidden] = useState<boolean>(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setHidden(true);
+    }, 3000);
+  }, []);
+  if (hidden) return null;
+  return (
+    <div className="text-[100px] animate-typingText overflow-hidden w-[420px] text-gray-500 ">
+      <span className="tracking-wider">Welcome</span>
+    </div>
+  );
+}
 function Header() {
   return (
     <header className="min-h-20 bg fixed top-0 flex justify-end w-full bg-transparent items-center px-8">

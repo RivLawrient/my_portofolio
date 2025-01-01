@@ -13,6 +13,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      animation: {
+        typingText: "typing 2s",
+        hideText: "hide 2s 2s",
+      },
     },
   },
   plugins: [],
