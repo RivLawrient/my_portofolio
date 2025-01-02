@@ -7,7 +7,7 @@ export default function Page() {
       <div className="relative w-screen h-screen overflow-y-scroll">
         <Welcome text="hello, welcome" />
         <Header />
-        <section className="w-screen h-screen  items-center justify-center flex flex-col bg-gray-900/90">
+        <section className="w-screen h-screen  items-center justify-center flex flex-col border-[20px] border-gray-900 bg-gray-900/90">
           <img
             src="./fll.jpg"
             alt=""
@@ -15,10 +15,47 @@ export default function Page() {
           />
           <CardIntro />
         </section>
-        <section className="w-screen h-screen bg-gray-900"></section>
+        <section className="w-screen h-screen bg-gray-900 flex flex-col items-center font-mono justify-center">
+          <About />
+        </section>
         <section className="w-screen h-screen bg-gray-900"></section>
       </div>
     </div>
+  );
+}
+
+function About() {
+  return (
+    <>
+      <div className="text-[48px] my-10 text-gray-500 flex justify-center border-b ">
+        About me
+      </div>
+      <hr className="fill-gray-500" />
+      <div className="max-w-[50%] text-gray-500 text-[20px] text-center">
+        <span>
+          I am a vocational high school graduate in Computer and Network
+          Engineering (TKJ) with a strong passion for technology, especially
+          programming. Driven by a deep interest in becoming a skilled
+          programmer, I am committed to continuously improving my abilities.
+        </span>
+        <br />
+        <br />
+        <br />
+        <span>
+          I have been learning technologies such as TypeScript/JavaScript,
+          React.js, Next.js, Go, Spring Boot, and Java through online courses
+          and insights from others. I actively implement these skills in
+          real-world projects, such as creating a Pinterest website clone.
+        </span>
+        <br />
+        <br />
+        <br />
+        <span>
+          Programming is more than a career path for me—it’s my passion, and I’m
+          excited to keep growing and building impactful solutions.
+        </span>
+      </div>
+    </>
   );
 }
 
